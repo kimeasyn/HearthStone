@@ -1,16 +1,18 @@
-import java.util.Stack;
+import java.util.*;
 
 public class CardDeck {
+	private Stack<Card> cards = new Stack<Card>();
+	private static final int CARD_AMT = 30;
 	
-	private Stack<Card> cardDeck;
-	
-	public void popCard(){
-		cardDeck.pop();
+	public CardDeck(){
+		for(int i = 0; i < CARD_AMT; i++){
+			Card card = new Card();
+			cards.push(card);
+		}
+		Collections.shuffle(cards);
 	}
 	
-	public void pushCard(Card card){
-		if(cardDeck.size() < 30){
-			cardDeck.push(card);
-		}		
+	public Card popCard(){
+		return cards.pop();
 	}
 }
